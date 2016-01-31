@@ -33,6 +33,9 @@ $( document ).ready(function() {
     $(".view-details").click(function() {
       var parent = $(this).parent().parent();
       $(parent).children(".details").toggle();
+      var originalText = $(this).text();
+
+      //TODO: alter this statement so the original button can have any text and return to it
       $(this).text() === "View details »" ? $(this).text("Hide details »") : $(this).text("View details »");
     });
 
@@ -41,7 +44,7 @@ $( document ).ready(function() {
       var button = $(event.target);
       var dataVote = button.data('vote');
       voteCounts[dataVote] += 1;
-      voteCounts.total += 1;      
+      voteCounts.total += 1;
       updateBars();
     });
 
