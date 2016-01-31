@@ -33,3 +33,10 @@
     margin: 1em 0;
 }
 /* End of styles to make the page look OK. */
+
+/* POSITIONAL */
+
+.user-info {
+  padding-right: 15px;
+  margin-right: 0;
+}
