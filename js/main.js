@@ -31,12 +31,21 @@ $( document ).ready(function() {
 
     //Hide and show details, update text of buttons accordingly
     $(".view-details").click(function() {
+      var button = $(this);
       var parent = $(this).parent().parent();
       $(parent).children(".details").toggle();
-      var originalText = $(this).text();
+      if (button.text() === "Hide details »") {
+        if (button.parent().attr('class') === "js-learn-more") {
+          button.text("Learn more »");
+        }
+        else {
+          $(this).text("View details »");
+        }
+      }
 
-      //TODO: alter this statement so the original button can have any text and return to it
-      $(this).text() === "View details »" ? $(this).text("Hide details »") : $(this).text("View details »");
+        else {
+        button.text("Hide details »");
+      }
     });
 
     //Add to vote counts and update bars
@@ -50,6 +59,6 @@ $( document ).ready(function() {
 
     function updateBars() {
       $(".great-progress").css("width", (voteCounts.great/voteCounts.total) * 100 + "%");
-      $(".greatest-progress").css("width", (voteCounts.greatest/voteCounts.total) * 100+ "%");
+      $(".greatest-progress").css("width", (voteCounts.greatest/voteCounts.total) * 100 + "%");
     };
 });
